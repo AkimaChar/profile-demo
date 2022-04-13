@@ -1,24 +1,76 @@
 import React from "react";
-import SocialLink from "../../../components/socialLink/SocialLink";
-import TopTitleInput from "../../../components/topTitleInput/TopTitleInput";
+import SocialLink from "../../../components/SocialLink";
+import facebook from "../../../assets/fb.png";
 import linkedIn from "../../../assets/linkedin.png";
+import twitter from "../../../assets/twitter.png";
+import telegram from "../../../assets/telegram.png";
+import pinterest from "../../../assets/pinterest.png";
+import CustomInput from "../../../components/CustomInput";
 
-const Profile = () => {
+const Profile = ({ inputs, handleChange, handleClick, style }) => {
 	return (
 		<div>
+			{/* <div className="bar">
+			</div> */}
 			<div className="account-social-list">
-				<SocialLink saveLink="vk.com" imgPath={linkedIn} />
-				<SocialLink saveLink="vk.com" imgPath={linkedIn} />
-				<SocialLink saveLink="vk.com" imgPath={linkedIn} />
-				<SocialLink saveLink="vk.com" imgPath={linkedIn} />
-				<SocialLink saveLink="vk.com" imgPath={linkedIn} />
+				<svg
+					className="social-arrow"
+					width="47"
+					height="80"
+					viewBox="0 0 47 80"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M46.68 7.48039L39.6 0.400391L0 40.0004L39.6 79.6004L46.68 72.5204L14.16 40.0004L46.68 7.48039Z"
+						fill="black"
+					/>
+				</svg>
+				<SocialLink imgPath={linkedIn} handleClick={handleClick} style={style} />
+				<SocialLink imgPath={facebook} handleClick={handleClick} style={style} />
+				<SocialLink imgPath={twitter} handleClick={handleClick} style={style} />
+				<SocialLink imgPath={telegram} handleClick={handleClick} style={style} />
+				<SocialLink imgPath={pinterest} handleClick={handleClick} style={style} />
 			</div>
+
 			<div className="account-additional-info-list">
-				<TopTitleInput fieldName="Intro" />
-				<TopTitleInput fieldName="Web" />
-				<TopTitleInput fieldName="Email" />
-				<TopTitleInput fieldName="Phones" />
-				<TopTitleInput fieldName="Location" />
+				<CustomInput
+					onChange={handleChange}
+					value={inputs.intro}
+					name="intro"
+					label="Intro"
+					type="text"
+				/>
+				<CustomInput
+					onChange={handleChange}
+					value={inputs.web}
+					name="web"
+					label="Web"
+					type="url"
+				/>
+				<CustomInput
+					onChange={handleChange}
+					value={inputs.email}
+					name="email"
+					label="Email"
+					type="email"
+					required
+				/>
+				<CustomInput
+					onChange={handleChange}
+					value={inputs.phones}
+					name="phones"
+					label="Phones"
+					type="number"
+					required
+				/>
+				<CustomInput
+					onChange={handleChange}
+					value={inputs.location}
+					name="location"
+					label="Location"
+					type="text"
+				/>
 			</div>
 		</div>
 	);

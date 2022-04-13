@@ -14,11 +14,43 @@
 
 body,
 html {
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 .wrapper {
 	margin: 18px;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 14px;
+	span {
+		font-weight: 600;
+		font-size: 15px;
+		line-height: 22px;
+		text-align: center;
+		letter-spacing: -0.408px;
+		color: #232325;
+	}
+	button {
+		&:last-of-type {
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 21px;
+			text-align: right;
+			letter-spacing: -0.32px;
+			color: #1682f1;
+		}
+		svg {
+			height: 19.91px;
+			width: 11.3px;
+			path {
+				fill: #a6adb9;
+			}
+		}
+	}
 }
 
 .account-main-info {
@@ -43,9 +75,12 @@ html {
 			}
 		}
 	}
-	input {
-		height: 44px;
+	label {
 		width: 100%;
+	}
+	input {
+		width: 100%;
+		height: 44px;
 	}
 	input[name="name"] {
 		border-bottom: 1px solid rgba(60, 60, 67, 0.29);
@@ -78,11 +113,24 @@ html {
 			max-width: 100%;
 			width: 0;
 			overflow: hidden;
-			transition: 0.1s ease;
+			button {
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 21px;
+				text-align: right;
+				letter-spacing: -0.32px;
+				color: #1682f1;
+				border-bottom: 1px solid rgba(60, 60, 67, 0.29);
+			}
 		}
-		.active {
-			transition: 0.1s ease;
+		&.active {
 			width: 100%;
+			div {
+				width: 100%;
+				input {
+					width: 100%;
+				}
+			}
 		}
 		input {
 			padding-left: 10px;
@@ -91,7 +139,23 @@ html {
 			margin-left: 22px;
 		}
 	}
+	.social-arrow {
+		height: 19.91px;
+		width: 11.3px;
+		display: flex;
+		align-self: center;
+		transform: rotate(180deg);
+		path {
+			fill: #a6adb9;
+		}
+	}
 }
+
+// .bar {
+// 	background-color: #f9f9f9;
+// 	height: 44px;
+// 	width: 100%;
+// }
 
 .account-additional-info-list {
 	display: flex;
@@ -104,15 +168,18 @@ html {
 	.additional-info-item {
 		display: flex;
 		flex-direction: column;
-		border-bottom: 1px solid rgba(60, 60, 67, 0.29);
 		&:not(:first-of-type) {
 			margin-top: 18px;
 		}
-		input {
+		+ input {
 			height: 33px;
+			line-height: 18px;
+			font-weight: 500;
+			border-bottom: 1px solid rgba(60, 60, 67, 0.29);
+		}
+		+ input[id="Web"],
+		+ input[id="Email"] {
 			color: #1682f1;
-	line-height: 18px;
-	font-weight: 500;
 		}
 	}
 }
@@ -134,4 +201,12 @@ html {
 			align-items: center;
 		}
 	}
+}
+
+.error-case {
+	border: 1px solid red;
+}
+
+.success-case {
+	border: 1px solid green;
 }
